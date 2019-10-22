@@ -3,9 +3,9 @@
 
 A simple [AUR](https://aur.archlinux.org/) helper.
 
-![](./made-with-lisp-flat.svg)[^logo]
+![](./made-with-lisp-flat.svg)
 
-[^logo]: Lisp Lizard logo originally designed by Manfred Spiller, adopted into svg file by [azzamsa](https://github.com/azzamsa/lisp-logo).
+(Lisp Lizard logo originally designed by Manfred Spiller, adopted into svg file by [azzamsa](https://github.com/azzamsa/lisp-logo).)
 
 ## Installation
 
