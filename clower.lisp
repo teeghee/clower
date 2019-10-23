@@ -174,7 +174,7 @@
 (defun download-package
     (pkg &optional (basedir *default-download-directory*))
   "Clone PKG into DOWNLOAD-DIR."
-  (when (prepare-download-directory pkg basedir)
+  (when (prepare-download-repository pkg basedir)
     (let ((uri (concatenate 'string
                             "https://aur.archlinux.org/"
                             (archpackage-name pkg)
