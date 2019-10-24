@@ -1,4 +1,7 @@
 ;;;; package.lisp
 
 (defpackage #:clower
-  (:use #:cl))
+  (:use #:cl)
+  (:export :list-alien-packages
+           :sync-packages
+           :download-packages))
