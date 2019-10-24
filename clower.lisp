@@ -32,8 +32,8 @@
 
 (defun list-alien-packages ()
   "Return the output stream from the shell command `pacman -Qm'."
-  (nth-value 0 (uiop:run-program '("pacman" "-Qm")
-                                 :output #'parse-pacman-result)))
+  (values (uiop:run-program '("pacman" "-Qm")
+                            :output #'parse-pacman-result)))
 
 (defun max-uri-length-safe-p (pkglist)
   "Is it safe to turn PKGLIST into a single request?"
