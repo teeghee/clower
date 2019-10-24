@@ -4,4 +4,5 @@
   (:use #:cl)
   (:export :list-alien-packages
            :sync-packages
-           :download-packages))
+           :download-packages
+           :download-updates))

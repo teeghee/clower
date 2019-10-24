@@ -188,17 +188,16 @@
                                             :output t))))))
 
 (defun download-packages
-    (pkglist &key (basedir *default-download-directory*) (needed t))
-  "Try to download all the packages in PKGLIST.  When NEEDED is T,
-  pick out packages that has :update-available status."
-  (if needed
-      (download-packages (pickout-updated-packages pkglist)
-                         :basedir basedir
-                         :needed nil)
-      (progn
-        (ensure-directories-exist basedir)
-        (let ((result nil))
-          (dolist (pkg pkglist (nreverse result))
-            (when (download-package pkg basedir)
-              (push pkg result)))))))
+    (pkglist &optional (basedir *default-download-directory*))
+  "Download all the packages in PKGLIST into BASEDIR."
+  (let ((result nil))
+    (dolist (pkg pkglist (nreverse result))
+      (when (download-package pkg basedir)
+        (push pkg result)))))
+
+(defun download-updates
+    (&optional (basedir *default-download-directory*))
+  "Download all the packages that have updates available in AUR
+  server."
+  (download-packages (sync-packages) basedir))
 
