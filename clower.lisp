@@ -12,17 +12,15 @@
 
 ;;; Retrieve the list of alien packages.
 
-(defun make-package-from-string (s)
-  "From a string S \"packagename packagever\", return parsed
-  archpackage structure."
-  (let ((split (cl-ppcre:split "\\s" s)))
-    (make-archpackage :name (first split) :version (second split))))
-
 (defun parse-pacman-result (strm)
   "Parse the output package list (whitespace separated string format
   consisting of package name and its version) from the stream, and
   make it into an alist."
-  (labels ((recur (strm acc)
+  (labels ((make-package-from-string (s)
+             (let ((split (cl-ppcre:split "\\s" s)))
+               (make-archpackage :name (first split)
+                                 :version (second split))))
+           (recur (strm acc)
              (let ((line (read-line strm nil strm)))
                (if (streamp line)
                    (nreverse acc)
