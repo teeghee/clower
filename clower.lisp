@@ -80,7 +80,7 @@
 ;;; Use libalpm function alpm_pkg_vercmp by cffi.
 
 (cffi:define-foreign-library libalpm
-  (:unix (:or "libalpm.so.11" "libcurl.so"))
+  (:unix (:or "libalpm.so.12" "libalpm.so"))
   (t (:default "libalpm")))
 
 (cffi:use-foreign-library libalpm)
