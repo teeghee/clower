@@ -198,5 +198,9 @@
     (&optional (basedir *default-download-directory*))
   "Download all the packages that have updates available in AUR
   server."
-  (download-packages (sync-packages) basedir))
+  (let ((pkglist (remove-if-not #'(lambda (pkg)
+                                    (eq (archpackage-status pkg)
+                                        :update-available))
+                                (sync-packages))))
+    (download-packages pkglist basedir)))
 
