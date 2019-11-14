@@ -26,7 +26,7 @@ One also needs Arch Linux package manager
 * [Variable] **\*default-download-directory\***
 
 Default directory where AUR packages are cloned into.  The default
-value is `"~/aur/"`.
+value is `#p"~/aur/"`.
 
 * [Function] **list-alien-packages**
 
@@ -36,12 +36,12 @@ instances of **archpackage** structure.
 
 * [Function] **sync-packages** (*&optional listpkg*)
 
-Given the list of archpackages, make http query to AUR server and
-return unsynchronised archpackages (i.e. there are available updates
-in AUR server, no corresponding package in AUR server, etc.) with
-appropriate *status* field of the archpackage structure.  The optional
-argument **listpkg** defaults to the return value of the function
-**list-alien-packages**.
+Given the list of archpackages, **listpkg** make http query to AUR
+server and return unsynchronised archpackages (i.e. those with
+available updates in AUR server, or those having no corresponding
+package in AUR server, etc.) with appropriate *status* field of the
+archpackage structure.  The optional argument **listpkg** defaults to
+the return value of the function **list-alien-packages**.
 
 * [Function] **download-packages** (*pkglist &optional basedir*)
 
